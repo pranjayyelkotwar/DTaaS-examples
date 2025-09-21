@@ -32,3 +32,13 @@ trigger_heart_dt:
       when: always
   # variables:
   #   RunnerTag: $RunnerTag
+
+trigger_heart_dt_paas:
+  stage: triggers
+  trigger:
+    include: digital_twins/heart_dt_paas/.gitlab-ci.yml
+  rules:
+    - if: '$DTName == "heart_dt_paas"'
+      when: always
+  variables:
+    RunnerTag: $RunnerTag
